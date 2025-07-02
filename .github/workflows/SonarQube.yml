@@ -44,5 +44,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"pth-sonarsource_eshoponweb" /o:"pth-sonarsource" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://dev19.sc-dev19.io" /d:sonar.verbose=true
-          dotnet build
+          dotnet build eShopOnWeb.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"

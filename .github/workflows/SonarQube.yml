@@ -41,6 +41,8 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ARCHITECTURE_EXPORT_GRAPHS: true
+          SONAR_ARCHITECTURE_EXPORT_FLAVOR: true
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"pth-sonarsource_eshoponweb" /o:"pth-sonarsource" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://dev19.sc-dev19.io" /d:sonar.scanner.sonarcloudUrl="https://dev19.sc-dev19.io" /d:sonar.verbose=true

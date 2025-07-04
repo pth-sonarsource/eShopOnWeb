@@ -48,3 +48,8 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"pth-sonarsource_eshoponweb" /o:"pth-sonarsource" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://dev19.sc-dev19.io" /d:sonar.scanner.sonarcloudUrl="https://dev19.sc-dev19.io" /d:sonar.verbose=true
           dotnet build eShopOnWeb.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      - name: Store dna xml & json files
+        uses: actions/upload-artifact@v4
+        with:
+          name: dna-scan-artifacts
+          path: ./.sonarqube/out/architecture/exports/

@@ -47,7 +47,7 @@ jobs:
           SONAR_ARCHITECTURE_EXPORT_ISSUES: true
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"pth-sonarsource_eshoponweb" /o:"pth-sonarsource" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://dev19.sc-dev19.io" /d:sonar.scanner.sonarcloudUrl="https://dev19.sc-dev19.io"  /d:sonar.architecture.visualization.enabled=false /d:sonar.architecture.enable=true /d:sonar.architecture.preview.enable=true /d:sonar.architecture.preview.available=true /d:sonar.verbose=true
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"sonarsource_eshoponweb" /o:"sonarsource" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://dev19.sc-dev19.io" /d:sonar.scanner.sonarcloudUrl="https://dev19.sc-dev19.io"  /d:sonar.architecture.visualization.enabled=false /d:sonar.architecture.enable=true /d:sonar.architecture.preview.enable=true /d:sonar.architecture.preview.available=true /d:sonar.verbose=true
           dotnet build eShopOnWeb.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
       - name: Store dna xml & json files

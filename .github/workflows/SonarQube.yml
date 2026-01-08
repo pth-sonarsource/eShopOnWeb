@@ -47,8 +47,8 @@ jobs:
           SONAR_ARCHITECTURE_EXPORT_ISSUES: true
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"quality-architecture-validation" /o:"sonarsource" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sc-staging.io" /d:sonar.scanner.sonarcloudUrl="https://sc-staging.io"  /d:sonar.architecture.visualization.enabled=false /d:sonar.architecture.enable=true /d:sonar.architecture.preview.enable=true /d:sonar.architecture.preview.available=true /d:sonar.verbose=true
-          dotnet build eShopOnWeb.sln
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"pth_eShopOnWeb" /o:"pth" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sc-staging.io" /d:sonar.scanner.sonarcloudUrl="https://sc-staging.io"  /d:sonar.architecture.visualization.enabled=false /d:sonar.architecture.enable=true /d:sonar.architecture.preview.enable=true /d:sonar.architecture.preview.available=true /d:sonar.verbose=true
+          dotnet build src/ApplicationCore/ApplicationCore.csproj
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
       - name: Store dna xml & json files
         uses: actions/upload-artifact@v4

@@ -260,3 +260,13 @@ pub/
 .devcontainer
 
 .azure
+
+# SonarQube/SonarCloud scanner working directory
+.sonarqube/
+
+# macOS finder metadata
+.DS_Store
+
+# Local SonarCloud architecture-model API scratch/backup files
+intended-model.json
+model-backup.json
